@@ -40,9 +40,11 @@
 .hero-text h1 {
   font-family: var(--font-montserrat);
   font-weight: 600;
-  font-size: 3rem;
-  line-height: 1.2;
+  font-size: 40px;
+  line-height: 135%;
+  letter-spacing: 0;
   color: var(--color-text-dark);
+  text-transform: uppercase;
   margin-bottom: 1.5rem;
 }
 
@@ -72,12 +74,6 @@
 }
 
 /* Responsive Hero */
-@media (max-width: 1024px) {
-  .hero-text h1 {
-    font-size: 2.5rem;
-  }
-}
-
 @media (max-width: 992px) {
   .hero-content {
     justify-content: center;
@@ -94,7 +90,9 @@
   }
 
   .hero-text h1 {
-    font-size: 1.75rem;
+    font-size: 22px;
+    line-height: 135%;
+    letter-spacing: 0;
     text-align: center;
   }
 
@@ -107,11 +105,5 @@
   .btn-secondary {
     width: 100%;
     padding: 1rem 2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-text h1 {
-    font-size: 1.5rem;
   }
 }
