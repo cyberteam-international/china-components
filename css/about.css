@@ -23,7 +23,7 @@
 
 .about-content {
   display: grid;
-  grid-template-columns: 380px 1fr;
+  grid-template-columns: 461px 1fr;
   gap: 60px;
   margin-bottom: 80px;
   align-items: start;
@@ -44,30 +44,35 @@
 
 .founder-info {
   position: absolute;
-  bottom: 0;
-  right: 0;
-  background: #ffffff;
-  padding: 20px 30px;
-  border-top-left-radius: 20px;
+  top: 48px;
+  right: 33px;
 }
 
 .founder-position {
-  font-size: 12px;
-  text-transform: uppercase;
-  color: #666666;
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 135%;
+  letter-spacing: 0%;
+  color: #5b5b5b;
   margin-bottom: 5px;
 }
 
 .founder-name {
-  font-size: 18px;
-  font-weight: 700;
-  color: #1764c0;
+  font-family: var(--font-inter);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 127%;
+  letter-spacing: 0%;
+  color: #181d23;
 }
 
 .about-text {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  justify-content: flex-end;
+  height: 100%;
 }
 
 .about-text p {
