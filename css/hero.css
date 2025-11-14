@@ -68,6 +68,11 @@
   color: var(--color-primary);
 }
 
+.cart-icon {
+  width: 30px;
+  height: 30px;
+}
+
 /* Responsive Hero */
 @media (max-width: 1024px) {
   .hero-text h1 {
