@@ -59,9 +59,12 @@
   gap: 0.5rem;
   font-family: var(--font-inter);
   font-weight: 400;
-  font-size: 1rem;
-  color: var(--color-text-dark);
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #5b5b5b;
   margin-bottom: 2rem;
+  padding-left: 30px;
 }
 
 .hero-subtitle svg {
@@ -97,9 +100,12 @@
   }
 
   .hero-subtitle {
-    font-size: 0.875rem;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0;
     display: flex;
     justify-content: center;
+    padding-left: 0;
   }
 
   .btn-secondary {
