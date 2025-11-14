@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CC - Китайские Компоненты</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <img
+              src="images/logo.svg"
+              alt="CC - Китайские Компоненты"
+              class="logo-image"
+            />
+          </div>
+
+          <button class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <nav class="nav">
+            <ul class="nav-menu" id="navMenu">
+              <li><a href="#about">О КОМПАНИИ</a></li>
+              <li><a href="#products">ПРОДУКЦИЯ</a></li>
+              <li><a href="#linecard">LINE CARD</a></li>
+              <li><a href="#contacts">КОНТАКТЫ</a></li>
+            </ul>
+          </nav>
+
+          <button class="btn-primary header-btn">ОСТАВИТЬ ЗАЯВКУ</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Menu Modal -->
+    <div class="mobile-menu-modal" id="mobileMenuModal">
+      <div class="mobile-menu-content">
+        <div class="mobile-menu-header">
+          <div class="logo">
+            <img
+              src="images/logo.svg"
+              alt="CC - Китайские Компоненты"
+              class="logo-image"
+            />
+          </div>
+          <button class="menu-close" id="menuClose">
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+        <nav class="mobile-menu-nav">
+          <ul class="mobile-nav-menu">
+            <li><a href="#about">О КОМПАНИИ</a></li>
+            <li><a href="#products">ПРОДУКЦИЯ</a></li>
+            <li><a href="#linecard">LINE CARD</a></li>
+            <li><a href="#contacts">КОНТАКТЫ</a></li>
+          </ul>
+        </nav>
+        <button class="btn-primary mobile-menu-btn">ОСТАВИТЬ ЗАЯВКУ</button>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <img src="images/hero_bg-left.png" alt="" class="hero-bg-left" />
+      <img src="images/hero_bg-right.png" alt="" class="hero-bg-right" />
+
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1>
+              ОРИГИНАЛЬНЫЕ<br />
+              ЭЛЕКТРОННЫЕ<br />
+              КОМПОНЕНТЫ<br />
+              НАПРЯМУЮ ИЗ <span class="highlight">КИТАЯ</span>
+            </h1>
+            <p class="hero-subtitle">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3 10L8 15L17 5"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              Оптом и в розницу
+            </p>
+            <button class="btn-secondary">УЗНАТЬ ПОДРОБНОСТИ</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
