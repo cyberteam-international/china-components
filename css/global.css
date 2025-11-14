@@ -57,32 +57,11 @@ button {
 }
 
 /* Buttons */
-.btn-primary {
-  padding: 19px 2rem;
-  font-family: var(--font-inter);
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 100%;
-  letter-spacing: 0.035em;
-  text-transform: uppercase;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-  background: var(--color-primary);
-  color: var(--color-white);
-  height: 50px;
-}
-
-.btn-primary:hover {
-  background: var(--color-secondary);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
-}
-
-.btn-secondary {
-  width: 340px;
+/* Buttons */
+/* Base button - large (hero and other sections) */
+.btn {
   height: 83px;
-  padding: 0 2rem;
+  padding: 32px 52px;
   font-family: var(--font-inter);
   font-weight: 600;
   font-size: 16px;
@@ -91,14 +70,25 @@ button {
   text-transform: uppercase;
   border-radius: 8px;
   transition: all 0.3s ease;
-  background: var(--color-primary);
+  background: linear-gradient(135deg, #60a9ff 0%, #1764c0 100%);
+  box-shadow: 0px 25px 50px -10px rgba(21, 84, 158, 0.4);
   color: var(--color-white);
+  transition: all 0.2s;
 }
 
-.btn-secondary:hover {
-  background: var(--color-secondary);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+.btn:hover {
+  background: linear-gradient(135deg, #5099ee 0%, #1555b0 100%);
+  box-shadow: 0px 30px 60px -10px rgba(21, 84, 158, 0.5);
+}
+
+/* Header button (small) */
+.btn-header {
+  width: auto;
+  height: 50px;
+  padding: 19px 2rem;
+  font-size: 12px;
+  letter-spacing: 0.035em;
+  white-space: nowrap;
 }
 
 .decoration-line {
