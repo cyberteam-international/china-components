@@ -101,8 +101,26 @@ button {
   box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
 }
 
+.decoration-line {
+  position: relative;
+  display: flex;
+  height: 100%;
+  align-items: flex-start;
+  padding-top: 23px;
+}
+.decoration-line span {
+  width: 131px;
+  height: 6px;
+  display: inline-block;
+  background: linear-gradient(90deg, #60a9ff 0%, #1764c0 100%);
+  border-radius: 3px;
+}
+
 /* Responsive Container */
 @media (max-width: 992px) {
+  .decoration-line {
+    display: none;
+  }
   .container {
     padding: 0 1rem;
   }
