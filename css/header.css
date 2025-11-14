@@ -51,11 +51,12 @@
 
 .nav-menu a {
   font-family: var(--font-inter);
-  font-weight: 400;
-  font-size: 0.875rem;
-  color: var(--color-text-dark);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0.04em;
+  color: #8d8d8d;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
   transition: color 0.3s ease;
   position: relative;
 }
