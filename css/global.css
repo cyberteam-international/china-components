@@ -105,9 +105,12 @@ button {
 
 /* Section Titles */
 .section-title {
-  font-size: 36px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  font-family: var(--font-montserrat);
+  font-weight: 600;
+  font-size: 44px;
+  line-height: 100%;
+  letter-spacing: 3%;
+  text-transform: uppercase;
   margin-bottom: 0px;
   position: relative;
 }
