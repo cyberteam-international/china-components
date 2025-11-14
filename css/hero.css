@@ -79,6 +79,9 @@
 
 /* Responsive Hero */
 @media (max-width: 992px) {
+  .hero {
+    padding-bottom: 0px;
+  }
   .hero-content {
     justify-content: center;
     flex-wrap: wrap;

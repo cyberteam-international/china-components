@@ -48,7 +48,9 @@ button {
   cursor: pointer;
   font-family: inherit;
 }
-
+section {
+  overflow-x: hidden;
+}
 /* Container */
 .container {
   max-width: var(--container-max-width);
@@ -146,10 +148,32 @@ button {
 
 /* Responsive Container */
 @media (max-width: 992px) {
+  .row--title {
+    margin-bottom: 49px;
+  }
   .section-title {
-    font-size: 24px;
-    margin-bottom: 40px;
-    padding-left: 50px;
+    font-family: var(--font-montserrat);
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 135%;
+    letter-spacing: 0%;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+    padding-left: 0px;
+    width: 100%;
+  }
+
+  .fantom-title {
+    font-family: var(--font-montserrat);
+    font-weight: 600;
+    font-size: 41.75px;
+    line-height: 100%;
+    letter-spacing: 3%;
+    text-transform: uppercase;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 13px;
   }
 
   .decoration-line {

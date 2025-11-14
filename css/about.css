@@ -163,10 +163,11 @@
 }
 
 /* Mobile Styles */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .about {
     padding: 60px 20px;
-    margin-top: -60px;
+    margin-top: 0px;
+    border-radius: 0;
   }
 
   .about-content {
@@ -180,30 +181,62 @@
     margin: 0 auto;
   }
 
+  .founder-position {
+    font-size: 14px;
+  }
+
+  .founder-name {
+    font-size: 16px;
+  }
+
   .about-text {
     gap: 16px;
   }
 
   .about-text p {
-    font-size: 14px;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .about-text p.has-decoration {
+    padding-left: 30px;
+  }
+
+  .about-text p.has-decoration::before {
+    width: 20px;
+  }
+
+  .about-text p strong {
+    font-size: 16px;
   }
 
   .goals-title {
     font-size: 24px;
     margin-bottom: 30px;
+    text-align: left;
   }
 
   .goals-grid {
-    grid-template-columns: 1fr;
     gap: 30px;
   }
 
+  .goal-card {
+    flex-basis: 100%;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
   .goal-icon {
-    width: 70px;
-    height: 70px;
+    flex-basis: 80px;
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    margin: 0;
   }
 
   .goal-card p {
     font-size: 14px;
+    flex-basis: auto;
   }
 }
