@@ -1,12 +1,11 @@
 /* Hero Section */
 .hero {
   position: relative;
-  min-height: 100vh;
   background: var(--color-bg-light);
   padding: 4rem 0;
   padding-top: calc(4rem + 90px);
   overflow: hidden;
-  height: 100vh;
+  height: max-content;
 }
 
 /* Background Images */
@@ -80,13 +79,18 @@
 }
 
 @media (max-width: 992px) {
+  .hero-content {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
   .hero-bg-left {
     display: none;
   }
 
   .hero-bg-right {
-    width: 150px;
-    opacity: 0.1;
+    width: 100%;
+    position: static;
+    margin-top: 30px;
   }
 
   .hero-text h1 {
