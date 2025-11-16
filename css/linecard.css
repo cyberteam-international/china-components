@@ -1,0 +1,82 @@
+/* Line Card Section */
+.linecard {
+  background: #ffffff;
+  padding: 80px 20px;
+  position: relative;
+  color: #181d23;
+  border-radius: 90px;
+}
+
+.linecard .decoration-line span {
+  background: var(--color-primary);
+}
+
+.linecard .fantom-title {
+  color: #a1a1a1;
+}
+
+.linecard-subtitle {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  color: #5b5b5b;
+  text-align: center;
+  margin-top: 16px;
+}
+
+.linecard-images {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: -40px;
+}
+
+.linecard-image-large {
+  width: 100%;
+}
+
+.linecard-image-large img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.linecard-image-mobile {
+  display: none;
+}
+
+/* Mobile Styles */
+@media (max-width: 992px) {
+  .linecard {
+    padding: 60px 20px;
+    border-radius: 20px;
+  }
+
+  .combine {
+    width: 100%;
+  }
+
+  .linecard-subtitle {
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+
+  .linecard-image-large {
+    display: none;
+  }
+
+  .linecard-image-mobile {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .linecard-image-mobile img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
