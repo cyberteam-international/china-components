@@ -1,7 +1,6 @@
 /* Hero Section */
 .hero {
   position: relative;
-  background: var(--color-bg-light);
   padding: 4rem 0;
   padding-top: calc(4rem + 90px);
   overflow: hidden;

@@ -32,6 +32,7 @@ body {
   color: var(--color-text-dark);
   line-height: 1.6;
   overflow-x: hidden;
+  background: var(--color-bg-light);
 }
 
 a {
@@ -119,7 +120,7 @@ section {
 
 .fantom-title {
   position: absolute;
-  left: 0;
+  left: -15px;
   top: 100%;
   font-family: var(--font-montserrat);
   font-weight: 600;
