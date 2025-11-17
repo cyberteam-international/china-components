@@ -772,6 +772,73 @@
       </div>
     </footer>
 
+    <!-- Request Modal -->
+    <div class="request-modal" id="requestModal">
+      <div class="request-modal-overlay"></div>
+      <div class="request-modal-content">
+        <button class="request-modal-close" id="requestModalClose">
+          <span></span>
+          <span></span>
+        </button>
+        <div class="request-modal-header">
+          <h2>ОСТАВЬТЕ ЗАЯВКУ</h2>
+          <p>Менеджер свяжется с вами в ближайшее время</p>
+        </div>
+        <form class="request-form" id="requestForm">
+          <div class="form-group">
+            <input
+              type="text"
+              id="userName"
+              name="name"
+              placeholder="Ваше имя"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="tel"
+              id="userPhone"
+              name="phone"
+              placeholder="Ваш телефон"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-submit">ОТПРАВИТЬ</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Thank You Modal -->
+    <div class="thank-you-modal" id="thankYouModal">
+      <div class="thank-you-modal-overlay"></div>
+      <div class="thank-you-modal-content">
+        <button class="thank-you-modal-close" id="thankYouModalClose">
+          <span></span>
+          <span></span>
+        </button>
+        <div class="thank-you-icon">
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+            <circle cx="40" cy="40" r="38" stroke="#E31E24" stroke-width="4" />
+            <path
+              d="M25 40L35 50L55 30"
+              stroke="#E31E24"
+              stroke-width="4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+        <h2>СПАСИБО!</h2>
+        <p>
+          Ваша заявка успешно отправлена.<br />Мы свяжемся с вами в ближайшее
+          время.
+        </p>
+        <button class="btn btn-close-modal" id="closeThankYouModal">
+          ЗАКРЫТЬ
+        </button>
+      </div>
+    </div>
+
     <script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>
     <script src="./libs/gsap/gsap.min.js"></script>
     <script src="./libs/gsap/ScrollTrigger.min.js"></script>

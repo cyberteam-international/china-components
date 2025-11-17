@@ -1,0 +1,261 @@
+/* Request Modal Styles */
+.request-modal,
+.thank-you-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.request-modal.active,
+.thank-you-modal.active {
+  display: flex;
+  opacity: 1;
+}
+
+.request-modal-overlay,
+.thank-you-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.request-modal-content,
+.thank-you-modal-content {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  padding: 60px 40px;
+  max-width: 600px;
+  width: 90%;
+  z-index: 10001;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.request-modal.active .request-modal-content,
+.thank-you-modal.active .thank-you-modal-content {
+  transform: scale(1);
+}
+
+.request-modal-close,
+.thank-you-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10002;
+  transition: transform 0.3s ease;
+}
+
+.request-modal-close:hover,
+.thank-you-modal-close:hover {
+  transform: rotate(90deg);
+}
+
+.request-modal-close span,
+.thank-you-modal-close span {
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  background: #000;
+  top: 50%;
+  left: 50%;
+  transition: background 0.3s ease;
+}
+
+.request-modal-close:hover span,
+.thank-you-modal-close:hover span {
+  background: var(--color-primary);
+}
+
+.request-modal-close span:first-child,
+.thank-you-modal-close span:first-child {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.request-modal-close span:last-child,
+.thank-you-modal-close span:last-child {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.request-modal-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.request-modal-header h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 15px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.request-modal-header p {
+  font-size: 16px;
+  color: #666;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.request-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 18px 20px;
+  font-size: 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  outline: none;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  border-color: var(--color-primary);
+}
+
+.form-group input::placeholder {
+  color: #999;
+}
+
+.form-group input.error {
+  border-color: #e31e24;
+}
+
+.btn-submit {
+  margin-top: 10px;
+  width: 100%;
+  padding: 18px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Thank You Modal Styles */
+.thank-you-modal-content {
+  text-align: center;
+  padding: 80px 40px 60px;
+}
+
+.thank-you-icon {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  animation: scaleIn 0.5s ease;
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.thank-you-modal-content h2 {
+  font-size: 42px;
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 20px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.thank-you-modal-content p {
+  font-size: 18px;
+  color: #666;
+  margin: 0 0 40px 0;
+  line-height: 1.6;
+}
+
+.btn-close-modal {
+  min-width: 250px;
+  padding: 18px 40px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .request-modal-content,
+  .thank-you-modal-content {
+    padding: 40px 25px;
+    max-width: 95%;
+  }
+
+  .request-modal-header h2 {
+    font-size: 28px;
+  }
+
+  .request-modal-header p {
+    font-size: 14px;
+  }
+
+  .thank-you-modal-content {
+    padding: 60px 25px 40px;
+  }
+
+  .thank-you-modal-content h2 {
+    font-size: 32px;
+  }
+
+  .thank-you-modal-content p {
+    font-size: 16px;
+  }
+
+  .thank-you-icon svg {
+    width: 60px;
+    height: 60px;
+  }
+
+  .btn-close-modal {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .request-modal-header h2 {
+    font-size: 24px;
+  }
+
+  .thank-you-modal-content h2 {
+    font-size: 28px;
+  }
+
+  .form-group input {
+    padding: 15px 18px;
+    font-size: 15px;
+  }
+}

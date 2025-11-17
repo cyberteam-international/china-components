@@ -208,4 +208,118 @@ window.addEventListener("load", () => {
       answer.classList.toggle("active", !isActive);
     });
   });
+
+  // Request Modal Functionality
+  const requestModal = document.getElementById("requestModal");
+  const thankYouModal = document.getElementById("thankYouModal");
+  const requestModalClose = document.getElementById("requestModalClose");
+  const thankYouModalClose = document.getElementById("thankYouModalClose");
+  const closeThankYouModalBtn = document.getElementById("closeThankYouModal");
+  const requestForm = document.getElementById("requestForm");
+
+  // Get all buttons that should open the request modal
+  const requestButtons = document.querySelectorAll(
+    '.btn:not(.menu-toggle):not(.faq-toggle):not([type="submit"]):not(.btn-close-modal)'
+  );
+
+  // Function to open request modal
+  function openRequestModal() {
+    requestModal.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+
+  // Function to close request modal
+  function closeRequestModal() {
+    requestModal.classList.remove("active");
+    document.body.style.overflow = "";
+    requestForm.reset();
+  }
+
+  // Function to open thank you modal
+  function openThankYouModal() {
+    thankYouModal.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+
+  // Function to close thank you modal
+  function closeThankYouModal() {
+    thankYouModal.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+
+  // Add click event to all request buttons
+  requestButtons.forEach((button) => {
+    button.addEventListener("click", function (e) {
+      e.preventDefault();
+      openRequestModal();
+    });
+  });
+
+  // Close request modal on close button click
+  if (requestModalClose) {
+    requestModalClose.addEventListener("click", closeRequestModal);
+  }
+
+  // Close request modal on overlay click
+  if (requestModal) {
+    requestModal
+      .querySelector(".request-modal-overlay")
+      .addEventListener("click", closeRequestModal);
+  }
+
+  // Close thank you modal on close button click
+  if (thankYouModalClose) {
+    thankYouModalClose.addEventListener("click", closeThankYouModal);
+  }
+
+  // Close thank you modal on close button click
+  if (closeThankYouModalBtn) {
+    closeThankYouModalBtn.addEventListener("click", closeThankYouModal);
+  }
+
+  // Close thank you modal on overlay click
+  if (thankYouModal) {
+    thankYouModal
+      .querySelector(".thank-you-modal-overlay")
+      .addEventListener("click", closeThankYouModal);
+  }
+
+  // Handle form submission
+  if (requestForm) {
+    requestForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const nameInput = document.getElementById("userName");
+      const phoneInput = document.getElementById("userPhone");
+
+      // Simple validation
+      if (!nameInput.value.trim()) {
+        nameInput.classList.add("error");
+        return;
+      } else {
+        nameInput.classList.remove("error");
+      }
+
+      if (!phoneInput.value.trim()) {
+        phoneInput.classList.add("error");
+        return;
+      } else {
+        phoneInput.classList.remove("error");
+      }
+
+      // Close request modal and show thank you modal
+      closeRequestModal();
+      setTimeout(() => {
+        openThankYouModal();
+      }, 300);
+    });
+  }
+
+  // Remove error class on input
+  const formInputs = document.querySelectorAll(".form-group input");
+  formInputs.forEach((input) => {
+    input.addEventListener("input", function () {
+      this.classList.remove("error");
+    });
+  });
 });
