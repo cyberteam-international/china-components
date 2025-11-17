@@ -32,10 +32,6 @@
   transition: transform 0.3s ease;
 }
 
-.logo-image:hover {
-  transform: scale(1.05);
-}
-
 /* Navigation */
 .nav {
   flex: 1;
@@ -213,7 +209,7 @@
 
 @media (max-width: 480px) {
   .logo-image {
-    height: 35px;
+    height: 48px;
   }
 
   .mobile-menu-content {
