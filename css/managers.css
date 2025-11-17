@@ -1,0 +1,154 @@
+/* Managers Section */
+.managers {
+  padding: 80px 20px;
+  position: relative;
+  color: #181d23;
+}
+
+.managers .decoration-line span {
+  background: var(--color-primary);
+}
+
+.managers .fantom-title {
+  color: #a1a1a1;
+}
+
+.managers-subtitle {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  color: #5b5b5b;
+  margin-top: 16px;
+}
+
+.managers-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px;
+  max-width: 1000px;
+  margin: 60px auto 0;
+}
+
+.manager-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.manager-image {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  background: #f0f0f0;
+}
+
+.manager-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.manager-card h3 {
+  font-family: var(--font-montserrat);
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 141%;
+  letter-spacing: 0%;
+  text-align: center;
+  color: #181d23;
+  margin-bottom: 5px;
+}
+
+.manager-position {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  color: #5b5b5b;
+  margin-bottom: 20px;
+}
+
+.manager-email {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  color: #1764c0;
+  margin-bottom: 30px;
+  transition: opacity 0.3s ease;
+}
+
+.manager-email:hover {
+  opacity: 0.8;
+}
+
+.manager-card .btn {
+  width: 100%;
+  max-width: 300px;
+}
+
+/* Mobile Styles */
+@media (max-width: 992px) {
+  .managers {
+    padding: 60px 20px;
+  }
+
+  .managers .row--title {
+    margin-bottom: 0;
+  }
+
+  .managers-subtitle {
+    text-align: center;
+  }
+
+  .combine {
+    width: 100%;
+  }
+
+  .managers-subtitle {
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+
+  .managers-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-top: 0;
+  }
+
+  .manager-card {
+    padding: 30px;
+  }
+
+  .manager-image {
+    margin-bottom: 20px;
+  }
+
+  .manager-card h3 {
+    font-size: 20px;
+  }
+
+  .manager-position {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  .manager-email {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+}
