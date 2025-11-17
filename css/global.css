@@ -84,7 +84,7 @@ section {
 }
 
 .btn:hover {
-  background: linear-gradient(135deg, #5099ee 0%, #1555b0 100%);
+  /* background: linear-gradient(135deg, #5099ee 0%, #1555b0 100%); */
   box-shadow: 0px 30px 60px -10px rgba(21, 84, 158, 0.5);
 }
 
