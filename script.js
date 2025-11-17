@@ -40,9 +40,19 @@ document.addEventListener("DOMContentLoaded", function () {
         const target = document.querySelector(href);
         if (target) {
           e.preventDefault();
-          target.scrollIntoView({
+
+          // Получаем высоту шапки
+          const header = document.querySelector(".header");
+          const headerHeight = header ? header.offsetHeight : 0;
+
+          // Получаем позицию элемента
+          const targetPosition =
+            target.getBoundingClientRect().top + window.pageYOffset;
+
+          // Скроллим с учетом высоты шапки
+          window.scrollTo({
+            top: targetPosition - headerHeight,
             behavior: "smooth",
-            block: "start",
           });
         }
       }
