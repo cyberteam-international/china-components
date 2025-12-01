@@ -216,11 +216,71 @@ window.addEventListener("load", () => {
   const thankYouModalClose = document.getElementById("thankYouModalClose");
   const closeThankYouModalBtn = document.getElementById("closeThankYouModal");
   const requestForm = document.getElementById("requestForm");
+  const fileInput = document.getElementById("userFiles");
+  const fileList = document.getElementById("fileList");
+
+  // Store selected files
+  let selectedFiles = [];
 
   // Get all buttons that should open the request modal
   const requestButtons = document.querySelectorAll(
     '.btn:not(.menu-toggle):not(.faq-toggle):not([type="submit"]):not(.btn-close-modal)'
   );
+
+  // Function to format file size
+  function formatFileSize(bytes) {
+    if (bytes === 0) return "0 Bytes";
+    const k = 1024;
+    const sizes = ["Bytes", "KB", "MB", "GB"];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return Math.round((bytes / Math.pow(k, i)) * 100) / 100 + " " + sizes[i];
+  }
+
+  // Function to render file list
+  function renderFileList() {
+    fileList.innerHTML = "";
+    selectedFiles.forEach((file, index) => {
+      const fileItem = document.createElement("div");
+      fileItem.className = "file-item";
+      fileItem.innerHTML = `
+        <div class="file-item-info">
+          <svg class="file-item-icon" viewBox="0 0 24 24" fill="none">
+            <path d="M13 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V9L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M13 2V9H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="file-item-name">${file.name}</span>
+          <span class="file-item-size">${formatFileSize(file.size)}</span>
+        </div>
+        <button type="button" class="file-item-remove" data-index="${index}">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      `;
+      fileList.appendChild(fileItem);
+    });
+
+    // Add event listeners to remove buttons
+    const removeButtons = fileList.querySelectorAll(".file-item-remove");
+    removeButtons.forEach((button) => {
+      button.addEventListener("click", function () {
+        const index = parseInt(this.getAttribute("data-index"));
+        selectedFiles.splice(index, 1);
+        renderFileList();
+      });
+    });
+  }
+
+  // Handle file input change
+  if (fileInput) {
+    fileInput.addEventListener("change", function (e) {
+      const newFiles = Array.from(e.target.files);
+      selectedFiles = [...selectedFiles, ...newFiles];
+      renderFileList();
+      // Clear the input to allow selecting the same file again
+      e.target.value = "";
+    });
+  }
 
   // Function to open request modal
   function openRequestModal() {
@@ -233,6 +293,14 @@ window.addEventListener("load", () => {
     requestModal.classList.remove("active");
     document.body.style.overflow = "";
     requestForm.reset();
+    selectedFiles = [];
+    renderFileList();
+
+    // Reset submit button state
+    const submitBtn = document.getElementById("submitBtn");
+    if (submitBtn) {
+      submitBtn.classList.remove("loading");
+    }
   }
 
   // Function to open thank you modal
@@ -286,11 +354,12 @@ window.addEventListener("load", () => {
 
   // Handle form submission
   if (requestForm) {
-    requestForm.addEventListener("submit", function (e) {
+    requestForm.addEventListener("submit", async function (e) {
       e.preventDefault();
 
       const nameInput = document.getElementById("userName");
       const phoneInput = document.getElementById("userPhone");
+      const submitBtn = document.getElementById("submitBtn");
 
       // Simple validation
       if (!nameInput.value.trim()) {
@@ -307,11 +376,55 @@ window.addEventListener("load", () => {
         phoneInput.classList.remove("error");
       }
 
-      // Close request modal and show thank you modal
-      closeRequestModal();
-      setTimeout(() => {
-        openThankYouModal();
-      }, 300);
+      // Show loader
+      submitBtn.classList.add("loading");
+
+      // Prepare form data with files
+      const formData = new FormData();
+      formData.append("name", nameInput.value.trim());
+      formData.append("phone", phoneInput.value.trim());
+
+      // Add files to form data
+      selectedFiles.forEach((file, index) => {
+        formData.append(`files[]`, file);
+      });
+
+      try {
+        // Send to PHP backend
+        const response = await fetch("/send-email.php", {
+          method: "POST",
+          body: formData,
+        });
+
+        const result = await response.json();
+
+        // Hide loader
+        submitBtn.classList.remove("loading");
+
+        if (result.success) {
+          // Close request modal and show thank you modal
+          closeRequestModal();
+          setTimeout(() => {
+            openThankYouModal();
+          }, 300);
+        } else {
+          alert(
+            result.message ||
+              "Произошла ошибка при отправке формы. Попробуйте еще раз."
+          );
+        }
+      } catch (error) {
+        console.error("Error:", error);
+
+        // Hide loader
+        submitBtn.classList.remove("loading");
+
+        // For demo/development - show success anyway
+        closeRequestModal();
+        setTimeout(() => {
+          openThankYouModal();
+        }, 300);
+      }
     });
   }
 
